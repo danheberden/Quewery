@@ -5,10 +5,6 @@
 */
 (function( document, w ){
 	w.Quewery = function( selector ) {
-  	  if( selector.match(/#[^\s]+$/) ) {
-	        return [ document.getElementById( selector.substring(1) ) ];
-	    } else {
-	        return document.querySelectorAll( selector );
-	    }   
-	}
-})( document, window);
+			return /#[^\s]+$/.test( selector ) ? [ document.getElementById( selector.slice(1) ) ] : document.querySelectorAll( selector );
+	};
+})( document, window );
