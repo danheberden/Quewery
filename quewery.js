@@ -5,7 +5,7 @@
 */
 (function( document, w ){
 	w.Quewery = function( selector ) {
-		return selector.match(/#[^(.|\s|\[)]+$/) ? [ document.getElementById( selector.substring(1) ) ] :
-			document.querySelectorAll( selector );  
-	}
-})( document, window);
+		return /#[^(.|\s|\[)]+$/.exec(selector) ? [ document.getElementById( selector.slice(1) ) ] :
+			document.querySelectorAll( selector ); 
+	};
+})( document, window );
