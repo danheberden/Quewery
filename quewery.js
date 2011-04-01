@@ -3,10 +3,14 @@
 *
 * Whatever license you want
 */
-(function( document ) {
-  this.Quewery = function( selector ) {
+(function( document, w ) {
+  var oldQuewery = w.Quewery, Quewery = w.Quewery = function ( selector ) {
     return /^#[\w\-]+$/.test(selector)
       ? [ document.getElementById(selector.slice(1)) ]
       : document.querySelectorAll(selector);
   };
-})(document);
+  Quewery.noConflict = function() {
+    w.Quewery = oldQuewery;
+    return Quewery;
+  };
+})( document, window );
