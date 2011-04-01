@@ -4,8 +4,12 @@
 * Whatever license you want
 */
 (function( document, w ){
-  w.Quewery = function( selector ) {
+  var oldQuewery = w.Quewery, Quewery = w.Quewery = function ( selector ) {
     return /#[^(.|\s|\[)]+$/.exec(selector) ? [ document.getElementById( selector.slice(1) ) ] :
-      document.querySelectorAll( selector ); 
+      document.querySelectorAll( selector );
+  };
+  Quewery.noConflict = function() {
+    w.Quewery = oldQuewery;
+    return Quewery;
   };
 })( document, window );
