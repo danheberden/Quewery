@@ -4,8 +4,8 @@
 * Whatever license you want
 */
 (function( document, w ){
-	w.Quewery = function( selector ) {
-		return /#[^(.|\s|\[)]+$/.exec(selector) ? [ document.getElementById( selector.slice(1) ) ] :
-			document.querySelectorAll( selector ); 
-	};
+  w.Quewery = function( selector ) {
+    return /#[^(.|\s|\[)]+$/.exec(selector) ? [ document.getElementById( selector.slice(1) ) ] :
+      document.querySelectorAll( selector ); 
+  };
 })( document, window );
