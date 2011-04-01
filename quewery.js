@@ -3,9 +3,10 @@
 *
 * Whatever license you want
 */
-(function( document, w ){
-  w.Quewery = function( selector ) {
-    return /#[^(.|\s|\[)]+$/.exec(selector) ? [ document.getElementById( selector.slice(1) ) ] :
-      document.querySelectorAll( selector ); 
+(function( document ) {
+  this.Quewery = function( selector ) {
+    return /^#[\w\-]+$/.test(selector)
+      ? [ document.getElementById(selector.slice(1)) ]
+      : document.querySelectorAll(selector);
   };
-})( document, window );
+})(document);
