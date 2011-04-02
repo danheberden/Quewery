@@ -1,0 +1,1 @@
+java -jar lib/JsTestDriver-1.2.2-custom.jar --config "quewery.conf" --browser "C:\Program Files\Internet Explorer\iexplore.exe" --tests all --port 8081
