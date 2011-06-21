@@ -1,3 +1,4 @@
+
 /*
 * Quewery.js (c) 2011 Dan Heberden
 *
@@ -5,12 +6,24 @@
 */
 (function( document, window ) {
 	
+function makeArray(arr){
+    var ret=[],x;
+
+    for(x=0;x<arr.length;x++){
+        ret[x]=arr[x];
+    }
+
+    return ret;
+}
+
   var _Quewery = window.Quewery, 
 			_Q = window.Q,
 			Quewery = window.Q = window.Quewery = function ( selector ) {
     		return /^#[\w\-]+$/.test( selector )
       		? [ document.getElementById( selector.slice(1) ) ]
-      		: document.querySelectorAll( selector );
+		: selector=="body"&&document.body?[document.body]
+      		: !/\W/.test(selector)? makeArray(document.getElementsByTagName(selector))
+                : document.querySelectorAll( selector );
   		};
 
   Quewery.noConflict = function( allTheWay ) {
