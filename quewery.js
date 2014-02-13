@@ -5,6 +5,7 @@
 */
 
 (function (document, window) {
+  'use strict';
 
   function makeArray(arr) {
     var ret = [], x;
