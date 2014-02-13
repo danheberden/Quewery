@@ -34,9 +34,12 @@
     };
 
   Quewery.noConflict = function (allTheWay) {
-    ['Q', 'q'].concat(allTheWay ? names : []).forEach(function (a) {
-      window[a] = originals[a];
-    });
+    if (allTheWay) {
+      var j = 128;
+      while (j--) { window[names[j]] = originals[names[j]]; }
+    }
+    window.Q = originals.Q;
+    window.q = originals.q;
     return Quewery;
   };
 
