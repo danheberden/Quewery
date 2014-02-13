@@ -32,26 +32,26 @@
             : document.querySelectorAll(selector);
     };
 
-    Quewery.noConflict = function (allTheWay) {
-      ['Q', 'q'].concat(allTheWay ? names : []).forEach(function (a) {
-        window[a] = originals[a];
-      });
-      return Quewery;
-    };
+  Quewery.noConflict = function (allTheWay) {
+    ['Q', 'q'].concat(allTheWay ? names : []).forEach(function (a) {
+      window[a] = originals[a];
+    });
+    return Quewery;
+  };
 
-    while (cases--) {
-        map = ('0000000' + cases.toString(2)).slice(-7);
-        i = 7;
-        name = '';
-        while (i--) { name = (map[i] === '1' ? upper[i] : lower[i]) + name; }
-        names.push(name);
-        originals[name] = window[name];
-        window[name] = Quewery;
-    }
+  while (cases--) {
+    map = ('0000000' + cases.toString(2)).slice(-7);
+    i = 7;
+    name = '';
+    while (i--) { name = (map[i] === '1' ? upper[i] : lower[i]) + name; }
+    names.push(name);
+    originals[name] = window[name];
+    window[name] = Quewery;
+  }
 
-    originals.Q = window.Q;
-    window.Q = Quewery;
-    originals.q = window.q;
-    window.q = Quewery;
-  
+  originals.Q = window.Q;
+  window.Q = Quewery;
+  originals.q = window.q;
+  window.q = Quewery;
+
 }(document, window));
